@@ -1,0 +1,69 @@
+package com.example.myguitarclass;
+
+import android.app.Activity;
+import android.content.Intent;
+import android.graphics.BitmapFactory;
+import android.media.MediaPlayer;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.ImageView;
+
+import static com.example.myguitarclass.Sound.soundPlay;
+
+public class LessonSix extends Activity {
+
+    private Button buttonBack;
+    private Button pereborAm;
+    private Button pripev;
+
+    private MediaPlayer pereborNaAm;
+    private MediaPlayer pripevNautilus;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.lesson_six);
+
+
+        buttonBack = findViewById(R.id.back);
+        buttonBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+                openActivity(LessonList.class);
+            }
+        });
+
+        pereborNaAm = MediaPlayer.create(this,R.raw.am_perebor_for_lesson_six);
+        pereborAm = findViewById(R.id.buttonAmPerebor);
+        pereborAm.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                soundPlay(pereborNaAm);
+            }
+        });
+        pripevNautilus = MediaPlayer.create(this,R.raw.pripev_nautilus_for_lesson_six);
+        pripev = findViewById(R.id.buttonPripevPerebor);
+        pripev.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                soundPlay(pripevNautilus);
+            }
+        });
+
+
+    }
+    @Override
+    protected void onStop() {
+        super.onStop();
+        finish();
+
+    }
+    public void openActivity(Class<?> cls) {
+
+        Intent intent = new Intent(this, cls);
+        startActivity(intent);
+    }
+
+}
