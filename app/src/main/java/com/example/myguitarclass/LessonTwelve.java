@@ -3,6 +3,10 @@ package com.example.myguitarclass;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+<<<<<<< HEAD
+=======
+import android.view.View;
+>>>>>>> test_second
 import android.widget.Button;
 
 public class LessonTwelve extends Activity {
@@ -15,6 +19,18 @@ public class LessonTwelve extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.lesson_twelve);
 
+<<<<<<< HEAD
+=======
+        buttonBack = findViewById(R.id.back);
+        buttonBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+                openActivity(LessonList.class);
+            }
+        });
+
+>>>>>>> test_second
 
     }
     @Override

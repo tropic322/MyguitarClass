@@ -103,6 +103,33 @@
 
             android:screenOrientation="portrait"
             />
+<<<<<<< HEAD
+=======
+        <activity android:name=".LessonFourteen"
+
+            android:screenOrientation="portrait"
+            />
+        <activity android:name=".LessonFifteen"
+
+            android:screenOrientation="portrait"
+            />
+        <activity android:name=".LessonSixteen"
+
+            android:screenOrientation="portrait"
+            />
+        <activity android:name=".LessonSeventeen"
+
+            android:screenOrientation="portrait"
+            />
+        <activity android:name=".LessonEighteen"
+
+            android:screenOrientation="portrait"
+            />
+        <activity android:name=".LessonNineteen"
+
+            android:screenOrientation="portrait"
+            />
+>>>>>>> test_second
 
     </application>
 

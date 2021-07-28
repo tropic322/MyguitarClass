@@ -11,28 +11,22 @@ import android.widget.ImageView;
 
 import static com.example.myguitarclass.Sound.soundPlay;
 
-public class LessonNine extends Activity {
+public class LessonSixteen extends Activity {
 
     private Button buttonBack;
+    private Button buttonRhythmRaggy;
+    private Button buttonVzbivka;
 
+    private  MediaPlayer RhythmRaggy;
+    private MediaPlayer Vzbivka;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.lesson_nine);
-
-<<<<<<< HEAD
-        ImageView chordHm = findViewById(R.id.chordHm);
-        chordHm.setImageBitmap(BitmapFactory.decodeResource(this.getResources(), R.drawable.hm_fingering));
-        ImageView a_barre = findViewById(R.id.a_barre);
-        a_barre.setImageBitmap(BitmapFactory.decodeResource(this.getResources(), R.drawable.a_barre_fingering));
-        ImageView g_barre = findViewById(R.id.g_barre);
-        g_barre.setImageBitmap(BitmapFactory.decodeResource(this.getResources(), R.drawable.g_barre_fingering));
-=======
+        setContentView(R.layout.lesson_sixteen);
 
 
->>>>>>> test_second
         buttonBack = findViewById(R.id.back);
         buttonBack.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -41,6 +35,25 @@ public class LessonNine extends Activity {
                 openActivity(LessonList.class);
             }
         });
+
+        RhythmRaggy = MediaPlayer.create(this,R.raw.rhythm_raggy);
+        buttonRhythmRaggy = findViewById(R.id.buttonRitmGaggy);
+        buttonRhythmRaggy.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                soundPlay(RhythmRaggy);
+            }
+        });
+
+        Vzbivka = MediaPlayer.create(this,R.raw.vzbivka);
+        buttonVzbivka = findViewById(R.id.buttonVzbivka);
+        buttonVzbivka.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                soundPlay(Vzbivka);
+            }
+        });
+
 
     }
     @Override

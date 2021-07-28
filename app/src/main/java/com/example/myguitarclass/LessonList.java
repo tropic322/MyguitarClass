@@ -75,6 +75,26 @@ public class LessonList extends Activity {
                     case 13:
                         openActivity(LessonThirteen.class);
                         break;
+<<<<<<< HEAD
+=======
+                    case 14:
+                        openActivity(LessonFourteen.class);
+                        break;
+                    case 15:
+                        openActivity(LessonFifteen.class);
+                        break;
+                    case 16:
+                        openActivity(LessonSixteen.class);
+                        break;
+                    case 17:
+                        openActivity(LessonSeventeen.class);
+                    case 18:
+                        openActivity(LessonEighteen.class);
+                        break;
+                    case 19:
+                        openActivity(LessonNineteen.class);
+
+>>>>>>> test_second
 
                 }
 

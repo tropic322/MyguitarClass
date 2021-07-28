@@ -2,14 +2,16 @@ package com.example.myguitarclass;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.BitmapFactory;
+import android.media.MediaPlayer;
 import android.os.Bundle;
-<<<<<<< HEAD
-=======
 import android.view.View;
->>>>>>> test_second
 import android.widget.Button;
+import android.widget.ImageView;
 
-public class LessonTen extends Activity {
+import static com.example.myguitarclass.Sound.soundPlay;
+
+public class LessonNineteen extends Activity {
 
     private Button buttonBack;
 
@@ -17,10 +19,9 @@ public class LessonTen extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.lesson_ten);
+        setContentView(R.layout.lesson_nineteen);
 
-<<<<<<< HEAD
-=======
+
         buttonBack = findViewById(R.id.back);
         buttonBack.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -29,8 +30,6 @@ public class LessonTen extends Activity {
                 openActivity(LessonList.class);
             }
         });
-
->>>>>>> test_second
 
     }
     @Override
@@ -46,3 +45,4 @@ public class LessonTen extends Activity {
     }
 
 }
+
