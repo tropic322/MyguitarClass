@@ -103,8 +103,7 @@
 
             android:screenOrientation="portrait"
             />
-<<<<<<< HEAD
-=======
+
         <activity android:name=".LessonFourteen"
 
             android:screenOrientation="portrait"
@@ -129,7 +128,7 @@
 
             android:screenOrientation="portrait"
             />
->>>>>>> test_second
+
 
     </application>
 

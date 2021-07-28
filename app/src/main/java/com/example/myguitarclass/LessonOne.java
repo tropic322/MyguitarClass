@@ -31,14 +31,14 @@ public class LessonOne extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.lesson_one);
 
-<<<<<<< HEAD
+
         ImageView amFingering = findViewById(R.id.amFingering);
         amFingering.setImageBitmap(BitmapFactory.decodeResource(this.getResources(), R.drawable.am_fingering));
 
-=======
+
         //ImageView amFingering = findViewById(R.id.amFingering);
         //amFingering.setImageBitmap(BitmapFactory.decodeResource(this.getResources(), R.drawable.am_fingering));
->>>>>>> test_second
+
 
         buttonBack = findViewById(R.id.back);
         buttonBack.setOnClickListener(new View.OnClickListener() {
@@ -49,10 +49,7 @@ public class LessonOne extends Activity {
             }
         });
 
-<<<<<<< HEAD
-=======
 
->>>>>>> test_second
         boiNumberOne = MediaPlayer.create(this,R.raw.boi_one);
         chordAm = MediaPlayer.create(this,R.raw.chord_am);
         chordC = MediaPlayer.create(this,R.raw.chord_c);
@@ -98,16 +95,12 @@ public class LessonOne extends Activity {
 
 
     }
-    @Override
-    protected void onStop() {
-        super.onStop();
-        finish();
 
-    }
     public void openActivity(Class<?> cls) {
 
-        Intent intent = new Intent(this, cls);
-        startActivity(intent);
+        Intent a = new Intent(this, cls);
+        a.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(a);
     }
 
 }

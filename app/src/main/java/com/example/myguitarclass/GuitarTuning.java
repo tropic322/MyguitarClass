@@ -62,7 +62,7 @@ public class GuitarTuning extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 finish();
-                openActivity_MainActivity();
+                openActivity(Practice.class);
             }
         });
 
@@ -164,17 +164,13 @@ public class GuitarTuning extends AppCompatActivity {
         });
     }
 
-    @Override
-    protected void onStop() {
-        super.onStop();
 
-        finish();
 
-    }
+    public void openActivity(Class<?> cls) {
 
-    public void openActivity_MainActivity(){
-        Intent intent = new Intent(this,Practice.class); //кнопка назад, открыть предыдущую активность
-        startActivity(intent);
+        Intent a = new Intent(this, cls);
+        a.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(a);
     }
 
 

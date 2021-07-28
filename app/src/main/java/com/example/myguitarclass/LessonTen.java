@@ -3,10 +3,9 @@ package com.example.myguitarclass;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-<<<<<<< HEAD
-=======
+
 import android.view.View;
->>>>>>> test_second
+
 import android.widget.Button;
 
 public class LessonTen extends Activity {
@@ -19,8 +18,7 @@ public class LessonTen extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.lesson_ten);
 
-<<<<<<< HEAD
-=======
+
         buttonBack = findViewById(R.id.back);
         buttonBack.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -29,20 +27,12 @@ public class LessonTen extends Activity {
                 openActivity(LessonList.class);
             }
         });
-
->>>>>>> test_second
-
-    }
-    @Override
-    protected void onStop() {
-        super.onStop();
-        finish();
-
     }
     public void openActivity(Class<?> cls) {
 
-        Intent intent = new Intent(this, cls);
-        startActivity(intent);
+        Intent a = new Intent(this, cls);
+        a.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(a);
     }
 
 }

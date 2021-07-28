@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
         button_to_theory.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                open_activity(LessonList.class);
+                openActivity(LessonList.class);
             }
         });
 
@@ -37,13 +37,15 @@ public class MainActivity extends AppCompatActivity {
         button_to_practice.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                open_activity( Practice.class);
+                openActivity( Practice.class);
             }
         });
     }
-    public void open_activity(Class<?> cls) {
-        Intent intent = new Intent(this, cls);
-        startActivity(intent);
+    public void openActivity(Class<?> cls) {
+
+        Intent a = new Intent(this, cls);
+        a.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(a);
     }
 
 

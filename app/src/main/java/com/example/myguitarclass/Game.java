@@ -108,13 +108,7 @@ public class Game extends AppCompatActivity {
         });
         ChangeTextOnButton();
     }
-    @Override
-    protected void onStop() {
-        super.onStop();
 
-        finish();
-
-    }
 
     public MediaPlayer RandomSound()
     {
@@ -206,11 +200,13 @@ public class Game extends AppCompatActivity {
 
         if(paramIntent==1) {
             intent = new Intent(this, Training.class);
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
             startActivity(intent);
         }
         else
         {
             intent = new Intent(this, ChooseString.class);
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
             startActivity(intent);
         }
     }
@@ -227,6 +223,8 @@ public class Game extends AppCompatActivity {
         button_three.setText(soundContainer[paramString][forText[2]].getSound_name());
         button_four.setText(soundContainer[paramString][forText[3]].getSound_name());
     }
+
+
 
 }
 

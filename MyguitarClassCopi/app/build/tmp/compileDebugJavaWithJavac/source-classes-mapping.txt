@@ -1,0 +1,35 @@
+com/example/myguitarclass/guitar_tuning.java
+ com.example.myguitarclass.guitar_tuning
+ com.example.myguitarclass.guitar_tuning$1
+ com.example.myguitarclass.guitar_tuning$2
+ com.example.myguitarclass.guitar_tuning$3
+ com.example.myguitarclass.guitar_tuning$4
+ com.example.myguitarclass.guitar_tuning$5
+ com.example.myguitarclass.guitar_tuning$6
+ com.example.myguitarclass.guitar_tuning$7
+ com.example.myguitarclass.guitar_tuning$8
+ com.example.myguitarclass.guitar_tuning$9
+ com.example.myguitarclass.guitar_tuning$9$1
+com/example/myguitarclass/choose_string.java
+ com.example.myguitarclass.choose_string
+ com.example.myguitarclass.choose_string$1
+ com.example.myguitarclass.choose_string$2
+ com.example.myguitarclass.choose_string$3
+ com.example.myguitarclass.choose_string$4
+ com.example.myguitarclass.choose_string$5
+ com.example.myguitarclass.choose_string$6
+ com.example.myguitarclass.choose_string$7
+com/example/myguitarclass/MainActivity.java
+ com.example.myguitarclass.MainActivity
+ com.example.myguitarclass.MainActivity$1
+ com.example.myguitarclass.MainActivity$2
+com/example/myguitarclass/training_notes_or_strings.java
+ com.example.myguitarclass.training_notes_or_strings
+ com.example.myguitarclass.training_notes_or_strings$1
+ com.example.myguitarclass.training_notes_or_strings$2
+ com.example.myguitarclass.training_notes_or_strings$3
+com/example/myguitarclass/BuildConfig.java
+ com.example.myguitarclass.BuildConfig
+com/example/myguitarclass/game_with_4_answers.java
+ com.example.myguitarclass.game_with_4_answers
+ com.example.myguitarclass.game_with_4_answers$1
