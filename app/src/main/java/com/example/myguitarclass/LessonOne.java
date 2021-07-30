@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 
 import static com.example.myguitarclass.Sound.soundPlay;
+import static com.example.myguitarclass.Sound.soundStop;
 
 public class LessonOne extends Activity {
     private Button buttonBack;
@@ -19,11 +20,8 @@ public class LessonOne extends Activity {
     private Button dm;
     private Button g;
 
-    private MediaPlayer boiNumberOne;
-    private MediaPlayer chordAm;
-    private MediaPlayer chordC;
-    private MediaPlayer chordDm;
-    private MediaPlayer chordG;
+    private MediaPlayer Player;
+
 
 
     @Override
@@ -35,11 +33,6 @@ public class LessonOne extends Activity {
         ImageView amFingering = findViewById(R.id.amFingering);
         amFingering.setImageBitmap(BitmapFactory.decodeResource(this.getResources(), R.drawable.am_fingering));
 
-
-        //ImageView amFingering = findViewById(R.id.amFingering);
-        //amFingering.setImageBitmap(BitmapFactory.decodeResource(this.getResources(), R.drawable.am_fingering));
-
-
         buttonBack = findViewById(R.id.back);
         buttonBack.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -50,17 +43,18 @@ public class LessonOne extends Activity {
         });
 
 
-        boiNumberOne = MediaPlayer.create(this,R.raw.boi_one);
-        chordAm = MediaPlayer.create(this,R.raw.chord_am);
-        chordC = MediaPlayer.create(this,R.raw.chord_c);
-        chordDm = MediaPlayer.create(this,R.raw.chord_dm);
-        chordG = MediaPlayer.create(this,R.raw.chord_g);
+        Player = MediaPlayer.create(this,R.raw.boi_one);
+
+
 
         boiOne = findViewById(R.id.buttonBoiOneWithChords);
         boiOne.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                soundPlay(boiNumberOne);
+                soundStop(Player);
+                Player = ChangeSound(R.raw.boi_one);
+                //
+                soundPlay(Player);
             }
         });
 
@@ -68,32 +62,43 @@ public class LessonOne extends Activity {
         am.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                soundPlay(chordAm);
+
+               soundStop(Player);
+
+                Player = ChangeSound(R.raw.chord_am);
+                soundPlay(Player);
             }
         });
         c = findViewById(R.id.buttonC);
         c.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                soundPlay(chordC);
+                soundStop(Player);
+                Player = ChangeSound(R.raw.chord_c);
+
+                soundPlay(Player);
             }
         });
         dm = findViewById(R.id.buttonDm);
         dm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                soundPlay(chordDm);
+                soundStop(Player);
+                Player = ChangeSound(R.raw.chord_dm);
+
+                soundPlay(Player);
             }
         });
         g = findViewById(R.id.buttonG);
         g.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                soundPlay(chordG);
+                soundStop(Player);
+                Player = ChangeSound(R.raw.chord_g);
+
+                soundPlay(Player);
             }
         });
-
-
     }
 
     public void openActivity(Class<?> cls) {
@@ -101,6 +106,10 @@ public class LessonOne extends Activity {
         Intent a = new Intent(this, cls);
         a.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(a);
+    }
+    public MediaPlayer ChangeSound(int sound){
+        MediaPlayer mp = MediaPlayer.create(this,sound);
+        return mp;
     }
 
 }

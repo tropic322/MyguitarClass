@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import static com.example.myguitarclass.Sound.soundPlay;
+import static com.example.myguitarclass.Sound.soundStop;
 
 public class LessonThree extends Activity {
 
@@ -14,8 +15,8 @@ public class LessonThree extends Activity {
     private Button boiTwo;
     private Button hSeven;
 
-    private MediaPlayer boiNumberTwo;
-    private MediaPlayer chordHSeven;
+    private MediaPlayer Player;
+
 
 
     @Override
@@ -33,14 +34,17 @@ public class LessonThree extends Activity {
             }
         });
 
-        boiNumberTwo = MediaPlayer.create(this,R.raw.boi_two);
-        chordHSeven = MediaPlayer.create(this,R.raw.chord_h_seven);
+        Player = MediaPlayer.create(this,R.raw.boi_two);
+        
 
         boiTwo = findViewById(R.id.buttonBoiTwo);
         boiTwo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                soundPlay(boiNumberTwo);
+                soundStop(Player);
+                Player = ChangeSound(R.raw.boi_two);
+
+                soundPlay(Player);
             }
         });
 
@@ -48,7 +52,10 @@ public class LessonThree extends Activity {
         hSeven.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                soundPlay(chordHSeven);
+                soundStop(Player);
+                Player = ChangeSound(R.raw.chord_h_seven);
+
+                soundPlay(Player);
             }
         });
 
@@ -58,6 +65,11 @@ public class LessonThree extends Activity {
         Intent a = new Intent(this, cls);
         a.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(a);
+    }
+
+    public MediaPlayer ChangeSound(int sound){
+        MediaPlayer mp = MediaPlayer.create(this,sound);
+        return mp;
     }
 
 }

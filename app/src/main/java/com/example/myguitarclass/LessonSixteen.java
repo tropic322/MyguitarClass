@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 
 import static com.example.myguitarclass.Sound.soundPlay;
+import static com.example.myguitarclass.Sound.soundStop;
 
 public class LessonSixteen extends Activity {
 
@@ -17,9 +18,7 @@ public class LessonSixteen extends Activity {
     private Button buttonRhythmRaggy;
     private Button buttonVzbivka;
 
-    private  MediaPlayer RhythmRaggy;
-    private MediaPlayer Vzbivka;
-
+    private  MediaPlayer Player;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,21 +35,27 @@ public class LessonSixteen extends Activity {
             }
         });
 
-        RhythmRaggy = MediaPlayer.create(this,R.raw.rhythm_raggy);
+        Player = MediaPlayer.create(this,R.raw.rhythm_raggy);
         buttonRhythmRaggy = findViewById(R.id.buttonRitmGaggy);
         buttonRhythmRaggy.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                soundPlay(RhythmRaggy);
+                soundStop(Player);
+                Player = ChangeSound(R.raw.rhythm_raggy);
+
+                soundPlay(Player);
             }
         });
 
-        Vzbivka = MediaPlayer.create(this,R.raw.vzbivka);
+
         buttonVzbivka = findViewById(R.id.buttonVzbivka);
         buttonVzbivka.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                soundPlay(Vzbivka);
+                soundStop(Player);
+                Player = ChangeSound(R.raw.vzbivka);
+
+                soundPlay(Player);
             }
         });
 
@@ -62,6 +67,9 @@ public class LessonSixteen extends Activity {
         a.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(a);
     }
-
+    public MediaPlayer ChangeSound(int sound){
+        MediaPlayer mp = MediaPlayer.create(this,sound);
+        return mp;
+    }
 }
 
