@@ -10,7 +10,6 @@ import android.widget.Button;
 import android.widget.ImageView;
 
 import static com.example.myguitarclass.Sound.soundPlay;
-import static com.example.myguitarclass.Sound.soundStop;
 
 public class LessonSixteen extends Activity {
 
@@ -18,7 +17,9 @@ public class LessonSixteen extends Activity {
     private Button buttonRhythmRaggy;
     private Button buttonVzbivka;
 
-    private  MediaPlayer Player;
+    private  MediaPlayer RhythmRaggy;
+    private MediaPlayer Vzbivka;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,41 +36,38 @@ public class LessonSixteen extends Activity {
             }
         });
 
-        Player = MediaPlayer.create(this,R.raw.rhythm_raggy);
+        RhythmRaggy = MediaPlayer.create(this,R.raw.rhythm_raggy);
         buttonRhythmRaggy = findViewById(R.id.buttonRitmGaggy);
         buttonRhythmRaggy.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                soundStop(Player);
-                Player = ChangeSound(R.raw.rhythm_raggy);
-
-                soundPlay(Player);
+                soundPlay(RhythmRaggy);
             }
         });
 
-
+        Vzbivka = MediaPlayer.create(this,R.raw.vzbivka);
         buttonVzbivka = findViewById(R.id.buttonVzbivka);
         buttonVzbivka.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                soundStop(Player);
-                Player = ChangeSound(R.raw.vzbivka);
-
-                soundPlay(Player);
+                soundPlay(Vzbivka);
             }
         });
 
 
     }
+    @Override
+    protected void onStop() {
+        super.onStop();
+        finish();
+
+    }
     public void openActivity(Class<?> cls) {
 
-        Intent a = new Intent(this, cls);
-        a.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-        startActivity(a);
+        Intent intent = new Intent(this, cls);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(intent);
     }
-    public MediaPlayer ChangeSound(int sound){
-        MediaPlayer mp = MediaPlayer.create(this,sound);
-        return mp;
-    }
+
 }
 

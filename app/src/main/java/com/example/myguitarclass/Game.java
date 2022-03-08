@@ -108,7 +108,13 @@ public class Game extends AppCompatActivity {
         });
         ChangeTextOnButton();
     }
+    @Override
+    protected void onStop() {
+        super.onStop();
 
+        finish();
+
+    }
 
     public MediaPlayer RandomSound()
     {
@@ -223,8 +229,6 @@ public class Game extends AppCompatActivity {
         button_three.setText(soundContainer[paramString][forText[2]].getSound_name());
         button_four.setText(soundContainer[paramString][forText[3]].getSound_name());
     }
-
-
 
 }
 

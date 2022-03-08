@@ -12,6 +12,7 @@ public class MainActivity extends AppCompatActivity {
 
     private Button button_to_theory;
     private Button button_to_practice;
+    private Button button_to_tuner;
 
 
 
@@ -25,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
         button_to_theory.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                openActivity(LessonList.class);
+                open_activity(LessonList.class);
             }
         });
 
@@ -37,18 +38,23 @@ public class MainActivity extends AppCompatActivity {
         button_to_practice.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                openActivity( Practice.class);
+                open_activity( Practice.class);
             }
+
+        });
+        button_to_tuner = findViewById(R.id.tuner);
+        button_to_tuner.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                open_activity( TunerActivity.class);
+            }
+
         });
     }
-    public void openActivity(Class<?> cls) {
-
-        Intent a = new Intent(this, cls);
-        a.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-        startActivity(a);
+    public void open_activity(Class<?> cls) {
+        Intent intent = new Intent(this, cls);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(intent);
     }
-
-
-
 }
 

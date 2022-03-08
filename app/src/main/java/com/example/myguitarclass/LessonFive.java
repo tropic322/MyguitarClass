@@ -47,11 +47,17 @@ public class LessonFive extends Activity {
         });
 
     }
+    @Override
+    protected void onStop() {
+        super.onStop();
+        finish();
+
+    }
     public void openActivity(Class<?> cls) {
 
-        Intent a = new Intent(this, cls);
-        a.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-        startActivity(a);
+        Intent intent = new Intent(this, cls);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(intent);
     }
 
 }

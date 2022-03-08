@@ -10,7 +10,6 @@ import android.widget.Button;
 import android.widget.ImageView;
 
 import static com.example.myguitarclass.Sound.soundPlay;
-import static com.example.myguitarclass.Sound.soundStop;
 
 public class LessonSeven extends Activity {
 
@@ -21,8 +20,11 @@ public class LessonSeven extends Activity {
     private Button buttonDPerebor;
     private Button buttonBoi;
 
-    private MediaPlayer Player;
-
+    private MediaPlayer EmPerebor;
+    private MediaPlayer CPerebor;
+    private MediaPlayer GPerebor;
+    private MediaPlayer DPerebor;
+    private MediaPlayer newBoi;
 
 
     @Override
@@ -40,59 +42,48 @@ public class LessonSeven extends Activity {
             }
         });
 
-        Player = MediaPlayer.create(this,R.raw.em_perebor_feat_boi);
+        EmPerebor = MediaPlayer.create(this,R.raw.em_perebor_feat_boi);
         buttonEmPerebor = findViewById(R.id.buttonEmPerebor);
         buttonEmPerebor.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                soundStop(Player);
-                Player = ChangeSound(R.raw.em_perebor_feat_boi);
-
-                soundPlay(Player);
+                soundPlay(EmPerebor);
             }
         });
 
+        CPerebor = MediaPlayer.create(this,R.raw.c_perebor_feat_boi);
         buttonCPerebor = findViewById(R.id.buttonCPerebor);
         buttonCPerebor.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                soundStop(Player);
-                Player = ChangeSound(R.raw.c_perebor_feat_boi);
-
-                soundPlay(Player);
+                soundPlay(CPerebor);
             }
         });
 
+        GPerebor = MediaPlayer.create(this,R.raw.g_perebor_feat_boi);
         buttonGPerebor = findViewById(R.id.buttonGPerebor);
         buttonGPerebor.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                soundStop(Player);
-                Player = ChangeSound(R.raw.g_perebor_feat_boi);
-
-                soundPlay(Player);
+                soundPlay(GPerebor);
             }
         });
 
+        DPerebor = MediaPlayer.create(this,R.raw.d_perebor_feat_boi);
         buttonDPerebor = findViewById(R.id.buttonDPerebor);
         buttonDPerebor.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                soundStop(Player);
-                Player = ChangeSound(R.raw.d_perebor_feat_boi);
-
-                soundPlay(Player);
+                soundPlay(DPerebor);
             }
         });
 
+        newBoi = MediaPlayer.create(this,R.raw.boi_for_lesson_seven);
         buttonBoi = findViewById(R.id.buttonNewBoi);
         buttonBoi.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                soundStop(Player);
-                Player = ChangeSound(R.raw.boi_for_lesson_seven);
-
-                soundPlay(Player);
+                soundPlay(newBoi);
             }
         });
 
@@ -100,14 +91,17 @@ public class LessonSeven extends Activity {
 
 
     }
+    @Override
+    protected void onStop() {
+        super.onStop();
+        finish();
+
+    }
     public void openActivity(Class<?> cls) {
 
-        Intent a = new Intent(this, cls);
-        a.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-        startActivity(a);
+        Intent intent = new Intent(this, cls);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(intent);
     }
-    public MediaPlayer ChangeSound(int sound){
-        MediaPlayer mp = MediaPlayer.create(this,sound);
-        return mp;
-    }
+
 }

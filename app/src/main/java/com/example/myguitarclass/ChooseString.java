@@ -105,10 +105,18 @@ public class ChooseString extends AppCompatActivity {
             }
         });
     }
-    public void openActivity(Class<?> cls) {
+    @Override
+    protected void onStop() {
+        super.onStop();
 
-        Intent a = new Intent(this, cls);
-        a.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-        startActivity(a);
+        finish();
+
+    }
+
+
+    public void openActivity(Class<?> cls) {
+        Intent intent = new Intent(this, cls);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(intent);
     }
 }

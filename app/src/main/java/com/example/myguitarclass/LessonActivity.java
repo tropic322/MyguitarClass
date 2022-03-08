@@ -10,7 +10,7 @@ public class LessonActivity extends Activity {
     private Button buttonBack;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) { ///надо проверить используется ли она
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.lesson_activity);
 
@@ -35,6 +35,7 @@ public class LessonActivity extends Activity {
     public void openActivity(Class<?> cls) {
 
         Intent intent = new Intent(this, cls);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(intent);
     }
 
