@@ -2,6 +2,7 @@ package com.example.myguitarclass;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.media.MediaPlayer;
@@ -13,11 +14,12 @@ import java.util.Random;
 
 
 import static com.example.myguitarclass.ChooseString.paramString;
+import static com.example.myguitarclass.NavUtils.openActivity;
 import static com.example.myguitarclass.Training.paramIntent;
 
 
 public class Game extends AppCompatActivity {
-
+    Context context = this;
     private  Button buttonBack;
     private  Button buttonSoundPlay;
     private  Button button_one;
@@ -49,7 +51,7 @@ public class Game extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 finish();
-                openActivity();
+                openActivity(context);
 
             }
         });
@@ -201,7 +203,7 @@ public class Game extends AppCompatActivity {
         ChangeTextOnButton();
         return str;
     }
-    public void openActivity(){ //для перехода назад по активностям
+    /*public void openActivity(){ //для перехода назад по активностям
         Intent intent = new Intent();
 
         if(paramIntent==1) {
@@ -215,7 +217,7 @@ public class Game extends AppCompatActivity {
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
             startActivity(intent);
         }
-    }
+    }*/
 
     public int  Randomize() {
         Random random = new Random();

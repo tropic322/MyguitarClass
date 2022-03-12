@@ -4,6 +4,7 @@ package com.example.myguitarclass;
 
 import android.Manifest;
 import android.annotation.SuppressLint;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -25,12 +26,13 @@ import org.jetbrains.annotations.NotNull;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
+import static com.example.myguitarclass.NavUtils.openActivity;
 import static com.example.myguitarclass.Training.paramIntent;
 
 public class TunerActivity extends AppCompatActivity {
 
     private static final String TAG = TunerActivity.class.getCanonicalName();//мусор?
-
+    Context context = this;
     public static final String STATE_NEEDLE_POS = "needle_pos";
     public static final String STATE_PITCH_INDEX = "pitch_index";
     public static final String STATE_LAST_FREQ = "last_freq";
@@ -75,7 +77,6 @@ public class TunerActivity extends AppCompatActivity {
     private void requestPermissions() {
         if (!Utils.checkPermission(this, Manifest.permission.RECORD_AUDIO)) {
 
-            // Should we show an explanation?
             if (ActivityCompat.shouldShowRequestPermissionRationale(this,
                     Manifest.permission.RECORD_AUDIO)) {
 
@@ -100,13 +101,7 @@ public class TunerActivity extends AppCompatActivity {
     @Override
     public void onRequestPermissionsResult(int requestCode, @NotNull String[] permissions, @NotNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-
-                // If request is cancelled, the result arrays are empty.
-
                     startAudioProcessing();
-
-
-
         }
 
 
@@ -168,7 +163,7 @@ public class TunerActivity extends AppCompatActivity {
     @SuppressLint("DefaultLocale")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        //Utils.setupActivityTheme(this);
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.tuner);
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);//сохроняет экран включенным
@@ -197,31 +192,13 @@ public class TunerActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 finish();
-                openActivity();
+                openActivity(context, MainActivity.class);
 
             }
         });
-        //startAudioProcessing();
+
     }
-    //бесполезный мусор
-    /*@Override
-    protected void onSaveInstanceState(Bundle outState) {
-        outState.putFloat(STATE_NEEDLE_POS, mNeedleView.getTipPos());
-        outState.putInt(STATE_PITCH_INDEX, mPitchIndex);
-        outState.putFloat(STATE_LAST_FREQ, mLastFreq);
-        super.onSaveInstanceState(outState);
-    }
-    //бесполезный мусор
-    @SuppressLint("DefaultLocale")
-    @Override
-    protected void onRestoreInstanceState(Bundle savedInstanceState) {
-        super.onRestoreInstanceState(savedInstanceState);
-        mNeedleView.setTipPos(savedInstanceState.getFloat(STATE_NEEDLE_POS));
-        int pitchIndex = savedInstanceState.getInt(STATE_PITCH_INDEX);
-        mNeedleView.setTickLabel(0.0F, String.format("%.02fHz", mTuning.pitches[pitchIndex].frequency));
-        mTuningView.setSelectedIndex(pitchIndex);
-        mFrequencyView.setText(String.format("%.02fHz", savedInstanceState.getFloat(STATE_LAST_FREQ)));
-    }*/
+
 
     //настройки нужно будет перенести
     @Override
@@ -233,21 +210,5 @@ public class TunerActivity extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
-    //убрать
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.senings, menu);
-        return true;
-    }
-    public void openActivity(){ //для перехода назад по активностям
-        Intent intent = new Intent();
-        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-
-            intent = new Intent(this, MainActivity.class);
-            startActivity(intent);
-
-    }
-
 
 }

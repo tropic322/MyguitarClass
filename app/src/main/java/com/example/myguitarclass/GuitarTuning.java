@@ -2,6 +2,8 @@ package com.example.myguitarclass;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
+import android.content.Context;
 import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Bundle;
@@ -11,11 +13,12 @@ import android.widget.PopupMenu;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import static com.example.myguitarclass.NavUtils.openActivity;
 import static com.example.myguitarclass.Sound.soundPlay;
 import static com.example.myguitarclass.Sound.tuning_sound;
 
 public class GuitarTuning extends AppCompatActivity {
-
+    Context context = this;
     private  Button buttonBack;
     private  Button buttonTitle;
     private  Button buttonStringOne;
@@ -62,7 +65,7 @@ public class GuitarTuning extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 finish();
-                openActivity_MainActivity();
+                openActivity(context,Practice.class);
             }
         });
 
@@ -130,6 +133,7 @@ public class GuitarTuning extends AppCompatActivity {
                         .inflate(R.menu.popup_menu, popup.getMenu());
 
                 popup.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+                    @SuppressLint("NonConstantResourceId")
                     @Override
                     public boolean onMenuItemClick(MenuItem item) {
                         switch (item.getItemId()) {
@@ -172,11 +176,11 @@ public class GuitarTuning extends AppCompatActivity {
 
     }
 
-    public void openActivity_MainActivity(){
+    /*public void openActivity_MainActivity(){
         Intent intent = new Intent(this,Practice.class); //кнопка назад, открыть предыдущую активность
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(intent);
-    }
+    }*/
 
 
 
@@ -184,7 +188,8 @@ public class GuitarTuning extends AppCompatActivity {
         MediaPlayer mp = MediaPlayer.create(this,sound);
         return mp;
     }
-    public void Promt_toast(int number_tuning,int number_string) //вывод подсказок по настройке гитары
+    @SuppressLint("NonConstantResourceId")
+    public void Promt_toast(int number_tuning, int number_string) //вывод подсказок по настройке гитары
     {
 
         switch (number_tuning){

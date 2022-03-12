@@ -2,14 +2,17 @@ package com.example.myguitarclass;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import static com.example.myguitarclass.NavUtils.openActivity;
+
 
 public class MainActivity extends AppCompatActivity {
-
+    Context context = this;
     private Button button_to_theory;
     private Button button_to_practice;
     private Button button_to_tuner;
@@ -26,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
         button_to_theory.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                open_activity(LessonList.class);
+                openActivity(context,LessonList.class);
             }
         });
 
@@ -38,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
         button_to_practice.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                open_activity( Practice.class);
+                openActivity(context, Practice.class);
             }
 
         });
@@ -46,15 +49,11 @@ public class MainActivity extends AppCompatActivity {
         button_to_tuner.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                open_activity( TunerActivity.class);
+                openActivity( context,TunerActivity.class);
             }
 
         });
     }
-    public void open_activity(Class<?> cls) {
-        Intent intent = new Intent(this, cls);
-        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-        startActivity(intent);
-    }
+
 }
 
