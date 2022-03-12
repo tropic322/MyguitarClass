@@ -9,7 +9,7 @@
         android:title="Open A"/>
 
     <item
-        android:id="@+id/Drop_C"
+        android:id="@+id/Open_G"
         android:title="Open G"/>
     <item
         android:id="@+id/Open_D"

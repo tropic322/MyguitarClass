@@ -16,6 +16,7 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.PopupMenu;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -38,7 +39,9 @@ public class TunerActivity extends AppCompatActivity {
     public static final String STATE_LAST_FREQ = "last_freq";
     private static final int PERMISSION_REQUEST_RECORD_AUDIO = 443;
 
+
     private Button buttonBack;
+    private Button chooseTuning;
     private Tuning mTuning;// m - бесполезная вещь рекомендованная гуглом
     private AudioProcessor mAudioProcessor;//?
     private ExecutorService mExecutor = Executors.newSingleThreadExecutor();// потока для записи звука
@@ -196,7 +199,53 @@ public class TunerActivity extends AppCompatActivity {
 
             }
         });
+        chooseTuning =findViewById((R.id.button34)); //начала попупа
+        chooseTuning.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                PopupMenu popup = new PopupMenu(context, chooseTuning);//привязываем попуп к активностии и кнопке
+                popup.getMenuInflater()
+                        .inflate(R.menu.popup_menu_tuner, popup.getMenu());
 
+                popup.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+                    @SuppressLint("NonConstantResourceId")
+                    @Override
+                    public boolean onMenuItemClick(MenuItem item) {
+                        switch (item.getItemId()) {
+
+                            case R.id.E_major:
+                                //numberTuning=0;
+                                mTuningView.setTuning(Tuning.getTuning(context,"Standard"));
+
+                                return true;
+                            case R.id.Open_A:
+                                //numberTuning=1;
+                                mTuningView.setTuning( Tuning.getTuning(context,"Open A"));
+
+                                return true;
+                            case R.id.Open_G:
+                               // numberTuning=2;
+                                mTuningView.setTuning(Tuning.getTuning(context,"Open G"));
+
+                                return true;
+                            case R.id.Open_D:
+                                //numberTuning=3;
+                                mTuningView.setTuning( Tuning.getTuning(context,"Open D"));
+
+                                return true;
+                            case R.id.Drop_D:
+                                //numberTuning=3;
+                                mTuningView.setTuning( Tuning.getTuning(context,"Drop D"));
+
+                                return true;
+                            default:
+                                return false;
+                        }
+                    }
+                });
+                popup.show();
+            }
+        });
     }
 
 
