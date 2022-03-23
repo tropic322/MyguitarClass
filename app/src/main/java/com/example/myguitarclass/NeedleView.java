@@ -57,16 +57,14 @@ public class NeedleView extends View {//класс отображения ани
         mTickLabelTextSize = getResources().getDimension(R.dimen.needle_view_tick_label_text_size);
         mTickLength = Utils.dpToPixels(context, 5); //?
 
-        setTipPos(0);//?
+        setTipPos(0);
 
-        final TypedArray array = context.obtainStyledAttributes( attrs,
-                R.styleable.NeedleView, defStyleAttr,
-                R.style.LightNeedleView);
+
         mNeedleColor = getResources().getColor(R.color.botton_color);
         mSmallTicksColor = getResources().getColor(R.color.urod);
         mBigTicksColor = getResources().getColor(R.color.second_urod);
         mTextColor = getResources().getColor(R.color.white);
-        array.recycle();
+
 
     }
 
