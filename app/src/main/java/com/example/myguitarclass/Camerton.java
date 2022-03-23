@@ -4,7 +4,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
-import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View;
@@ -17,7 +16,7 @@ import static com.example.myguitarclass.NavUtils.openActivity;
 import static com.example.myguitarclass.Sound.soundPlay;
 import static com.example.myguitarclass.Sound.tuning_sound;
 
-public class GuitarTuning extends AppCompatActivity {
+public class Camerton extends AppCompatActivity {
     Context context = this;
     private  Button buttonBack;
     private  Button buttonTitle;
@@ -128,7 +127,7 @@ public class GuitarTuning extends AppCompatActivity {
         chooseTuning.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                PopupMenu popup = new PopupMenu(GuitarTuning.this, chooseTuning);//привязываем попуп к активностии и кнопке
+                PopupMenu popup = new PopupMenu(Camerton.this, chooseTuning);//привязываем попуп к активностии и кнопке
                 popup.getMenuInflater()
                         .inflate(R.menu.popup_menu, popup.getMenu());
 
@@ -176,11 +175,6 @@ public class GuitarTuning extends AppCompatActivity {
 
     }
 
-    /*public void openActivity_MainActivity(){
-        Intent intent = new Intent(this,Practice.class); //кнопка назад, открыть предыдущую активность
-        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-        startActivity(intent);
-    }*/
 
 
 
@@ -198,24 +192,24 @@ public class GuitarTuning extends AppCompatActivity {
             case 1:
                 switch (number_string) { //это стоит доработать
                     case R.id.stringe:
-                        Toast.makeText(GuitarTuning.this, "Как и в стандартном строе", Toast.LENGTH_LONG).show();
+                        Toast.makeText(Camerton.this, "Как и в стандартном строе", Toast.LENGTH_LONG).show();
 
                         break;
                     case R.id.stringB:
-                        Toast.makeText(GuitarTuning.this,"Как и в стандартном строе", Toast.LENGTH_LONG).show();
+                        Toast.makeText(Camerton.this,"Как и в стандартном строе", Toast.LENGTH_LONG).show();
 
                         break;
                     case R.id.stringG:
-                        Toast.makeText(GuitarTuning.this,"Как и в стандартном строе", Toast.LENGTH_LONG).show();
+                        Toast.makeText(Camerton.this,"Как и в стандартном строе", Toast.LENGTH_LONG).show();
                         break;
                     case R.id.stringD:
-                        Toast.makeText(GuitarTuning.this,"Как и в стандартном строе", Toast.LENGTH_LONG).show();
+                        Toast.makeText(Camerton.this,"Как и в стандартном строе", Toast.LENGTH_LONG).show();
                         break;
                     case R.id.stringA:
-                        Toast.makeText(GuitarTuning.this,"Как и в стандартном строе", Toast.LENGTH_LONG).show();
+                        Toast.makeText(Camerton.this,"Как и в стандартном строе", Toast.LENGTH_LONG).show();
                         break;
                     case R.id.stringE:
-                        Toast.makeText(GuitarTuning.this,"Опустите струну на тон относительно стандартного строя", Toast.LENGTH_LONG).show();
+                        Toast.makeText(Camerton.this,"Опустите струну на тон относительно стандартного строя", Toast.LENGTH_LONG).show();
 
                         break;
                 }
@@ -223,44 +217,44 @@ public class GuitarTuning extends AppCompatActivity {
             case 2:
                 switch (number_string) {
                     case R.id.stringe:
-                        Toast.makeText(GuitarTuning.this, "Опустите струну на тон относительно стандартного строя", Toast.LENGTH_LONG).show();
+                        Toast.makeText(Camerton.this, "Опустите струну на тон относительно стандартного строя", Toast.LENGTH_LONG).show();
                         break;
                     case R.id.stringB:
-                        Toast.makeText(GuitarTuning.this,"Опустите струну на тон относительно стандартного строя", Toast.LENGTH_LONG).show();
+                        Toast.makeText(Camerton.this,"Опустите струну на тон относительно стандартного строя", Toast.LENGTH_LONG).show();
                         break;
                     case R.id.stringG:
-                        Toast.makeText(GuitarTuning.this,"Опустите струну на тон относительно стандартного строя", Toast.LENGTH_LONG).show();
+                        Toast.makeText(Camerton.this,"Опустите струну на тон относительно стандартного строя", Toast.LENGTH_LONG).show();
                         break;
                     case R.id.stringD:
-                        Toast.makeText(GuitarTuning.this,"Опустите струну на тон относительно стандартного строя", Toast.LENGTH_LONG).show();
+                        Toast.makeText(Camerton.this,"Опустите струну на тон относительно стандартного строя", Toast.LENGTH_LONG).show();
                         break;
                     case R.id.stringA:
-                        Toast.makeText(GuitarTuning.this,"Опустите струну на тон относительно стандартного строя", Toast.LENGTH_LONG).show();
+                        Toast.makeText(Camerton.this,"Опустите струну на тон относительно стандартного строя", Toast.LENGTH_LONG).show();
                         break;
                     case R.id.stringE:
-                        Toast.makeText(GuitarTuning.this,"Опустите струну на 2 тона относительно стандартного строя", Toast.LENGTH_LONG).show();
+                        Toast.makeText(Camerton.this,"Опустите струну на 2 тона относительно стандартного строя", Toast.LENGTH_LONG).show();
                         break;
                 }
                 break;
             case 3:
                 switch (number_string) {
                     case R.id.stringe:
-                        Toast.makeText(GuitarTuning.this, "Опустите струну на тон относительно стандартного строя", Toast.LENGTH_LONG).show();
+                        Toast.makeText(Camerton.this, "Опустите струну на тон относительно стандартного строя", Toast.LENGTH_LONG).show();
                         break;
                     case R.id.stringB:
-                        Toast.makeText(GuitarTuning.this,"Опустите струну на тон относительно стандартного строя", Toast.LENGTH_LONG).show();
+                        Toast.makeText(Camerton.this,"Опустите струну на тон относительно стандартного строя", Toast.LENGTH_LONG).show();
                         break;
                     case R.id.stringG:
-                        Toast.makeText(GuitarTuning.this,"Как и в стандартном строе", Toast.LENGTH_LONG).show();
+                        Toast.makeText(Camerton.this,"Как и в стандартном строе", Toast.LENGTH_LONG).show();
                         break;
                     case R.id.stringD:
-                        Toast.makeText(GuitarTuning.this,"Как и в стандартном строе", Toast.LENGTH_LONG).show();
+                        Toast.makeText(Camerton.this,"Как и в стандартном строе", Toast.LENGTH_LONG).show();
                         break;
                     case R.id.stringA:
-                        Toast.makeText(GuitarTuning.this,"Как и в стандартном строе", Toast.LENGTH_LONG).show();
+                        Toast.makeText(Camerton.this,"Как и в стандартном строе", Toast.LENGTH_LONG).show();
                         break;
                     case R.id.stringE:
-                        Toast.makeText(GuitarTuning.this,"Опустите струну на тон относительно стандартного строя", Toast.LENGTH_LONG).show();
+                        Toast.makeText(Camerton.this,"Опустите струну на тон относительно стандартного строя", Toast.LENGTH_LONG).show();
                         break;
                 }
                 break;

@@ -60,7 +60,7 @@ public class Game extends AppCompatActivity {
         buttonSoundPlay.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+               // titleSound.setVolume(30,30);
                Sound.soundPlay(titleSound);
                 textView.setText("");
             }
